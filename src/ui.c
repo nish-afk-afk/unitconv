@@ -62,6 +62,7 @@ double get_num(void){
 
    return num; 
 }
+////////////////////////////////////////////
 int temp_dest_select(void)
 {
     int unit;
@@ -79,7 +80,7 @@ int temp_dest_select(void)
 
     return unit;
 }
-
+/////////////////////////////////////
 void show_result(double result)
 {
     printf("\n\n");
@@ -87,9 +88,25 @@ void show_result(double result)
     printf("\n");
     printf("%f\n", result);
 }
+///////////////////////////////////
 
+enum WeightUnit weigh_unit_select(void)
+{
+    int unit;
 
+    printf("\n\n");
+    printf("=============select weight unit=============\n");
+    printf("\n\n");
+    printf("1. g  (grams)\n");
+    printf("2. kg (kilograms)\n");
+    printf("3. lb (pounds)\n");
 
+    printf("\n\n");
+    printf("please choose a unit (enter 1, 2, or 3):");
+    scanf("%i", &unit);
+
+    return unit;
+}
 
 
 

@@ -1,59 +1,89 @@
-````md
 # UnitConv
 
-UnitConv is a lightweight, offline unit conversion utility written in C.
+UnitConv is a lightweight, offline unit converter written in C.
 
-The long-term goal is simple:
+The goal is simple:
 
-> If humanity measured something with it, UnitConv should know it.
+> **If humanity measured something with it, UnitConv should know it.**
 
-UnitConv aims to provide a large collection of conversions in one fast, simple program without requiring an internet connection.
+UnitConv is designed to stay fast, simple, lightweight, and completely usable without an internet connection.
 
 ## Status
 
-**Beta**
+**Version: v1.0**
 
-UnitConv now has its first fully working conversion category: **temperature**.
+UnitConv has officially lefnderstand
 
-Currently supported:
+The program does not require an account, cloud service, internet connection, or external conversion API.
 
-- Celsius → Fahrenheit
-- Celsius → Kelvin
-- Fahrenheit → Celsius
-- Fahrenheit → Kelvin
-- Kelvin → Celsius
-- Kelvin → Fahrenheit
-- Same-unit conversions
+The computer does the conversion locally.
 
-After completing a conversion, UnitConv returns to the main menu so more conversions can be performed without restarting the program.
+## License
+
+UnitConv is free and open-source software licensed under the GNU General Public License v3.0.
+t beta.
+
+The first stable release includes two fully working conversion categories:
+
+* Temperature
+* Weight / Mass
+
+More conversion categories are planned for future releases.
+
+## Supported Conversions
+
+### Temperature
+
+UnitConv currently supports:
+
+* Celsius → Fahrenheit
+* Celsius → Kelvin
+* Fahrenheit → Celsius
+* Fahrenheit → Kelvin
+* Kelvin → Celsius
+* Kelvin → Fahrenheit
+* Same-unit conversions
+
+### Weight / Mass
+
+UnitConv currently supports:
+
+* Grams → Kilograms
+* Grams → Pounds
+* Kilograms → Grams
+* Kilograms → Pounds
+* Pounds → Grams
+* Pounds → Kilograms
+* Same-unit conversions
 
 ## Planned Categories
 
-UnitConv is still early in development. More conversion categories are planned, including:
+Future versions of UnitConv may include:
 
-- Weight / mass
-- Length / distance
-- Area
-- Volume
-- Speed
-- Time
-- Pressure
-- Energy
-- Power
-- Data / storage
-- And many more
+* Length / Distance
+* Area
+* Volume
+* Speed
+* Time
+* Pressure
+* Energy
+* Power
+* Data / Storage
+* Angle
+* Fuel economy
+* And many more
 
-The eventual goal is to support a huge range of everyday and specialized units.
+The long-term goal is to support a ridiculous number of useful units while keeping the program lightweight.
 
 ## Building
 
-UnitConv is written in C and can be compiled with GCC.
+UnitConv is written in C and can be compiled using GCC.
 
 From the repository root:
 
 ```bash
-gcc src/main.c src/ui.c src/tempconv.c -o build
-````
+gcc src/main.c src/ui.c src/tempconv.c src/weigh.c -o build
+```
 
 Then run:
 
@@ -61,18 +91,24 @@ Then run:
 ./build
 ```
 
-Or from inside the `src` directory:
+## Precompiled Binaries
 
-```bash
-gcc main.c ui.c tempconv.c -o ../build
-../build
+Precompiled binaries are available in the `compiled-binaries` directory for supported architectures.
+
+For example:
+
+```text
+compiled-binaries/
+└── x86_64/
 ```
+
+These are provided for users who want to run UnitConv without compiling it themselves.
 
 ## Usage
 
-UnitConv currently uses a simple terminal menu.
+Run UnitConv and select a conversion category from the menu.
 
-Menu choices must be entered using their corresponding **number**.
+The interface uses numbered options.
 
 Example:
 
@@ -80,60 +116,62 @@ Example:
 1. temp
 2. weight
 3. quit
-
-please select a type (enter 1, 2, or 3):
 ```
 
-The temperature converter asks for the source unit, value, and destination unit before displaying the result.
+Enter the number corresponding to the option you want.
 
-> **Note:** Input validation is still limited. Enter the numeric menu choices shown by the program.
+When selecting units, enter the displayed numeric option rather than the unit name itself.
 
 ## Project Structure
 
 ```text
-src/
-├── main.c
-├── ui.c
-├── ui.h
-├── tempconv.c
-└── tempconv.h
+UnitConv/
+├── src/
+│   ├── main.c
+│   ├── ui.c
+│   ├── ui.h
+│   ├── tempconv.c
+│   ├── tempconv.h
+│   ├── weigh.c
+│   └── weigh.h
+├── compiled-binaries/
+│   └── x86_64/
+├── LICENSE
+└── README.md
 ```
+
+### Source Modules
 
 * `main.c` — program control flow and conversion routing
-* `ui.c` / `ui.h` — terminal menus and user input
-* `tempconv.c` / `tempconv.h` — temperature conversion functions
+* `ui.c` / `ui.h` — terminal interface and user input
+* `tempconv.c` / `tempconv.h` — temperature conversion engine
+* `weigh.c` / `weigh.h` — weight/mass conversion engine
 
-## Precompiled Binaries
+## Design Philosophy
 
-Precompiled binaries may be provided in:
-
-```text
-compiled-binaries/
-└── x86_64/
-```
-
-Building from source is recommended during active development.
-
-## Philosophy
-
-UnitConv is intended to be:
+UnitConv aims to be:
 
 * Lightweight
-* Offline
 * Fast
+* Offline
 * Simple
+* Modular
 * Open source
-* Useful for both everyday and eventually specialized conversions
+* Easy to compile
+* Easy to understand
 
-No account. No website required. No sending a temperature measurement halfway across the planet just to discover that 100°C is 212°F.
+The program does not require an account, cloud service, internet connection, or external conversion API.
+
+The computer does the conversion locally.
 
 ## License
 
-UnitConv is licensed under the **GNU General Public License v3.0 (GPLv3)**.
+UnitConv is free and open-source software licensed under the GNU General Public License v3.0.
 
-See the `LICENSE` file for the full license text.
+See `LICENSE` for the full license text.
 
+## Version
 
+**UnitConv v1.0**
 
-
-
+First stable release.
