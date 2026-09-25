@@ -12,7 +12,7 @@ UnitConv is designed to stay fast, simple, lightweight, and completely usable wi
 
 **Version: v1.0**
 
-UnitConv has officially lefnderstand
+UnitConv has officially left beta
 
 The program does not require an account, cloud service, internet connection, or external conversion API.
 
