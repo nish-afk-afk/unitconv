@@ -37,7 +37,7 @@ int temp_unit_select(void){
     printf("=============select unit=============\n");
     printf("\n\n");
     printf("1. c (celsius)\n");
-    printf("2. f (fahrenheight)\n");
+    printf("2. f (fahrenheit)\n");
     printf("3. k (kelvin)\n");
 
     printf("\n\n");
